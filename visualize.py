@@ -19,6 +19,7 @@ def _traverse_expr(node, node_dict):
 
 dot = Digraph(format='svg')
 dot.attr(rankdir='BT')
+dot.attr('node', shape='box')
 
 node_dict = {}
 relay.analysis.post_order_visit(mod['main'], lambda node: _traverse_expr(node, node_dict))
