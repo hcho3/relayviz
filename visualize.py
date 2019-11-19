@@ -26,7 +26,7 @@ relay.analysis.post_order_visit(mod['main'], lambda node: _traverse_expr(node, n
 for node, node_idx in node_dict.items():
     if isinstance(node, relay.expr.Var):
         print(f'node_idx: {node_idx}, Var(name={node.name_hint}, type=Tensor[{tuple(node.type_annotation.shape)}, {node.type_annotation.dtype}])')
-        dot.node(str(node_idx), f'{node.name_hint}:\nTensor[{tuple(node.type_annotation.shape)}, {node.type_annotation.dtype}])')
+        dot.node(str(node_idx), f'{node.name_hint}:\nTensor[{tuple(node.type_annotation.shape)}, {node.type_annotation.dtype}]')
     elif isinstance(node, relay.expr.Call):
         args = [node_dict[arg] for arg in node.args]
         print(f'node_idx: {node_idx}, Call(op_name={node.op.name}, args={args})')
